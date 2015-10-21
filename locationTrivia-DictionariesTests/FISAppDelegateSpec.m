@@ -67,6 +67,16 @@ describe(@"FISAppDelegate", ^{
             NSString *shortenedName = [appDelegate stringByTruncatingNameOfLocation:empireState toLength:100];
             expect(shortenedName).to.equal(empireStateName);
         });
+        
+        it(@"performs correctly when dictionary is empty", ^{
+            NSString *shortenedName = [appDelegate stringByTruncatingNameOfLocation:@{} toLength:100];
+            expect(shortenedName).to.equal(nil);
+        });
+        
+        it(@"performs correctly when dictionary does not contain 'name'", ^{
+            NSString *shortenedName = [appDelegate stringByTruncatingNameOfLocation:@{@"latitude"  : @78.34} toLength:100];
+            expect(shortenedName).to.equal(nil);
+        });
     });
 
     describe(@"dictionaryForLocationWithName:latitude:longitude:", ^{
