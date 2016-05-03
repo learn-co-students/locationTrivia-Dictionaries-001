@@ -49,7 +49,17 @@
 }
 
 - (NSDictionary *)locationNamed:(NSString *)name inLocations:(NSArray *)locations {
-    return nil;
+    NSMutableDictionary *location = [[NSMutableDictionary alloc] init];
+    for (NSInteger i = 0; i < [locations count]; i++) {
+        if ([locations[i][@"name"] isEqualToString:name]) {
+            location = locations[i];
+        }
+    }
+    if ([[location allKeys] count] > 0) {
+        return location;
+    } else {
+        return nil;
+    }
 }
 
 @end
