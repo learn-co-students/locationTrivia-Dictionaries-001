@@ -20,8 +20,15 @@
     }
 }
 
-- (NSString *)dictionaryForLocationWithName:(NSString *)name latitude:(CGFloat)latitude longitude:(CGFloat)longitude {
-    return nil;
+- (NSDictionary *)dictionaryForLocationWithName:(NSString *)name
+                                       latitude:(CGFloat)latitude
+                                      longitude:(CGFloat)longitude {
+
+    NSDictionary *location = @{ @"name" : name,
+                                @"latitude" : @(latitude),
+                                @"longitude" : @(longitude)
+                                };
+    return location;
 }
 
 - (NSArray *)namesOfLocations:(NSArray *)locations {
