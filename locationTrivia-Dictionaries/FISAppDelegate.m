@@ -32,7 +32,11 @@
 }
 
 - (NSArray *)namesOfLocations:(NSArray *)locations {
-    return nil;
+    NSMutableArray *locationNames = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < [locations count]; i++) {
+        [locationNames addObject:locations[i][@"name"]];
+    }
+    return locationNames;
 }
 
 - (BOOL)dictionaryIsValidLocation:(NSDictionary *)dictionary {
