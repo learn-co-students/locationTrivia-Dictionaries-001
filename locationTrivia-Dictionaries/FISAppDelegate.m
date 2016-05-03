@@ -40,7 +40,12 @@
 }
 
 - (BOOL)dictionaryIsValidLocation:(NSDictionary *)dictionary {
-    return nil;
+    NSArray *locationKeys = [dictionary allKeys];
+    if ([locationKeys count] == 3 && [locationKeys containsObject:@"name"] && [locationKeys containsObject:@"latitude"] && [locationKeys containsObject:@"longitude"]){
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (NSDictionary *)locationNamed:(NSString *)name inLocations:(NSArray *)locations {
