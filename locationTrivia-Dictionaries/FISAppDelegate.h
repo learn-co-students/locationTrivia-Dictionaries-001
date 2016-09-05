@@ -5,11 +5,24 @@
 @interface FISAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+-(NSString *) shortenedNameOfLocation:(NSDictionary*)location
+                             toLength:(NSInteger)length;
 
-/**
- 
- *  Declare your method names here.
- 
- */
+-(NSDictionary*)dictionaryForLocationWithName:(NSString*)name
+                                     latitude:(NSNumber *)latitude
+                                    longitude:(NSNumber *)longitude;
+
+-(NSArray *)namesOfLocations:(NSArray*)locations;
+
+-(BOOL)dictionaryHasValidLocation:(NSDictionary *)dic;
+
+-(NSDictionary*)retrieveLocationByName:(NSString*)name
+                           inLocations:(NSArray*)locations;
+
+
+
+
+
+
 
 @end
